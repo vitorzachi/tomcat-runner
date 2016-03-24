@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>camtwoTomcatRunner</id>
     <name>Tomcat runner plugin for IntelliJ</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <vendor email="vitor.zachi@camtwo.com.br" url="http://www.camtwo.com.br">Camtwo Sistemas</vendor>
 
     <description><![CDATA[
