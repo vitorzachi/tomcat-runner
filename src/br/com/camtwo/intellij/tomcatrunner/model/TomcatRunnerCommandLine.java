@@ -27,7 +27,7 @@ import java.util.Set;
  * Command to run.
  *
  * @author Vitor Zachi Junior
- * Inspired on jetty-runner by GuiKeller.
+ *         Inspired on jetty-runner by GuiKeller.
  * @see JavaCommandLineState
  */
 public class TomcatRunnerCommandLine extends JavaCommandLineState {
@@ -84,12 +84,12 @@ public class TomcatRunnerCommandLine extends JavaCommandLineState {
         javaParams.setJdk(manager.getProjectSdk());
 
         // All modules to use the same things
-        Module[] modules = ModuleManager.getInstance(project).getModules();
-        if (modules != null && modules.length > 0) {
-            for (Module module : modules) {
-                javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);
-            }
-        }
+//        Module[] modules = ModuleManager.getInstance(project).getModules();
+//        if (modules != null && modules.length > 0) {
+//            for (Module module : modules) {
+//                javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);
+//            }
+//        }
 
         // Dynamically adds the tomcat jars to the classpath
 
@@ -107,12 +107,28 @@ public class TomcatRunnerCommandLine extends JavaCommandLineState {
         for (String jarFile : jars) {
             javaParams.getClassPath().add(binFolder.resolve(jarFile).toFile().getAbsolutePath());
         }
+
+        // add libs folder
+        Path libFolder = Paths.get(model.getTomcatInstallation()).resolve("lib");
+        if (!Files.exists(binFolder)) {
+            throw new ExecutionException("The Tomcat installation configured doesn't contains a lib folder");
+        }
+        jars = libFolder.toFile().list(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".jar");
+            }
+        });
+
+        for (String jarFile : jars) {
+            javaParams.getClassPath().add(libFolder.resolve(jarFile).toFile().getAbsolutePath());
+        }
+
         javaParams.setMainClass(MAIN_CLASS);
 
 
         // Working directories is the tomcat installation
         javaParams.setWorkingDirectory(model.getTomcatInstallation());
-
 
         // VM Args
         String vmArgs = this.getVmArgs();
