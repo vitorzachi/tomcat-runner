@@ -5,14 +5,10 @@ import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.JavaCommandLineState;
 import com.intellij.execution.configurations.JavaParameters;
 import com.intellij.execution.runners.ExecutionEnvironment;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -21,7 +17,6 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
 
 /**
  * Command to run.
@@ -32,8 +27,8 @@ import java.util.Set;
  */
 public class TomcatRunnerCommandLine extends JavaCommandLineState {
 
-    // Tomcat "Main Class" - the target (Tomcat Runner)
-    private static final String MAIN_CLASS = "org.apache.catalina.startup.Bootstrap";
+    private static final TomcatRunnerViaServerConf TOMCAT_RUNNER_VIA_CONF = new TomcatRunnerViaServerConf();
+    private static final TomcatConfigurer TOMCAT_CONFIGURER = new TomcatConfigurer();
 
     private ExecutionEnvironment environment;
     private TomcatRunnerConfiguration model;
@@ -47,35 +42,9 @@ public class TomcatRunnerCommandLine extends JavaCommandLineState {
     @Override
     public JavaParameters createJavaParameters() throws ExecutionException {
 
-        // clean webapps folder in tomcat installation
         Path tomcatInstallationPath = Paths.get(model.getTomcatInstallation());
-        Path webappFolder = tomcatInstallationPath.resolve("webapps");
-        try {
-            if (Files.exists(webappFolder)) {
-                DirectoryStream<Path> paths = Files.newDirectoryStream(webappFolder);
-                for (Path path : paths) {
-                    FileUtil.deleteFolderRecursive(path.toFile());
-                }
-            } else {
-                Files.createDirectory(webappFolder);
-            }
-        } catch (IOException e) {
-            throw new ExecutionException(e);
-        }
 
-
-        // copy webapp folders configured to webapps folder in tomcat installation
-        File webappFile = webappFolder.toFile();
-        for (Map.Entry<String, String> entry : model.getPathsAndLocations().entrySet()) {
-            File appDeployTarget = new File(webappFile, "/".equals(entry.getKey()) ? "ROOT" : entry.getKey());
-            File appSource = new File(entry.getValue());
-            try {
-                FileUtil.copyFolder(appSource, appDeployTarget);
-            } catch (IOException e) {
-                throw new ExecutionException(e);
-            }
-        }
-
+        TOMCAT_RUNNER_VIA_CONF.configure(tomcatInstallationPath, model.getTomcatModules());
 
         JavaParameters javaParams = new JavaParameters();
         // Use the same JDK as the project
@@ -91,44 +60,8 @@ public class TomcatRunnerCommandLine extends JavaCommandLineState {
 //            }
 //        }
 
-        // Dynamically adds the tomcat jars to the classpath
+        TOMCAT_CONFIGURER.configure(tomcatInstallationPath, javaParams);
 
-        Path binFolder = Paths.get(model.getTomcatInstallation()).resolve("bin");
-        if (!Files.exists(binFolder)) {
-            throw new ExecutionException("The Tomcat installation configured doesn't contains a bin folder");
-        }
-        String[] jars = binFolder.toFile().list(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".jar");
-            }
-        });
-
-        for (String jarFile : jars) {
-            javaParams.getClassPath().add(binFolder.resolve(jarFile).toFile().getAbsolutePath());
-        }
-
-        // add libs folder
-        Path libFolder = Paths.get(model.getTomcatInstallation()).resolve("lib");
-        if (!Files.exists(binFolder)) {
-            throw new ExecutionException("The Tomcat installation configured doesn't contains a lib folder");
-        }
-        jars = libFolder.toFile().list(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".jar");
-            }
-        });
-
-        for (String jarFile : jars) {
-            javaParams.getClassPath().add(libFolder.resolve(jarFile).toFile().getAbsolutePath());
-        }
-
-        javaParams.setMainClass(MAIN_CLASS);
-
-
-        // Working directories is the tomcat installation
-        javaParams.setWorkingDirectory(model.getTomcatInstallation());
 
         // VM Args
         String vmArgs = this.getVmArgs();
@@ -150,11 +83,9 @@ public class TomcatRunnerCommandLine extends JavaCommandLineState {
         }
 
 
-        javaParams.getProgramParametersList().add("start");
         // All done, run it
         return javaParams;
     }
-
 
     /**
      * Retrieves the "VM Args" parameter

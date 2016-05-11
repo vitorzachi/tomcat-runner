@@ -1,6 +1,7 @@
 package br.com.camtwo.intellij.tomcatrunner.ui;
 
 import br.com.camtwo.intellij.tomcatrunner.conf.TomcatRunnerConfigurationType;
+import br.com.camtwo.intellij.tomcatrunner.model.Modules;
 import br.com.camtwo.intellij.tomcatrunner.model.TomcatRunnerConfiguration;
 import com.google.common.base.Optional;
 import com.intellij.compiler.impl.ModuleCompileScope;
@@ -19,7 +20,9 @@ import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Controller - Tomcat Runner Editor
@@ -34,7 +37,7 @@ public class TomcatRunnerEditor extends SettingsEditor<TomcatRunnerConfiguration
     private String mainOutputDirectory = "";
 
     public TomcatRunnerEditor(TomcatRunnerConfiguration tomcatRunnerConfiguration) {
-        this.configurationPanel = new TomcatRunnerConfPanel();
+        this.configurationPanel = new TomcatRunnerConfPanel(this);
         super.resetFrom(tomcatRunnerConfiguration);
     }
 
@@ -53,18 +56,12 @@ public class TomcatRunnerEditor extends SettingsEditor<TomcatRunnerConfiguration
         if (tomcatInstallation != null && !"".equals(tomcatInstallation.trim())) {
             this.configurationPanel.getTomcatField().setText(tomcatInstallation);
         } else {
-            String projectName = project.getName();
             this.configurationPanel.getTomcatField().setText("Specify path of Tomcat installation");
         }
 
-
         // modules
-        Map<String, String> ctxs = Optional.fromNullable(tomcatRunnerConfiguration.getPathsAndLocations()).or(new HashMap<String, String>());
-
-        ModuleTableModel model = new ModuleTableModel();
-        for (Map.Entry<String, String> entry : ctxs.entrySet()) {
-            model.addModule(new br.com.camtwo.intellij.tomcatrunner.model.Module(entry.getKey(), entry.getValue()));
-        }
+        Modules modules = Optional.fromNullable(tomcatRunnerConfiguration.getTomcatModules()).or(new Modules());
+        ModuleTableModel model = new ModuleTableModel(modules);
         this.configurationPanel.getContexts().setModel(model);
 
         // Env Vars (Optional)
@@ -89,15 +86,8 @@ public class TomcatRunnerEditor extends SettingsEditor<TomcatRunnerConfiguration
         tomcatRunnerConfiguration.setPassParentEnvironmentVariables(this.configurationPanel.getEnvironmentVariables().isPassParentEnvs());
 
         // parse map of modules
-        Map<String, String> ctxs = new HashMap<>();
-
-        List<br.com.camtwo.intellij.tomcatrunner.model.Module> elements = ((ModuleTableModel) (this.configurationPanel.getContexts().getModel())).getModules();
-        for (br.com.camtwo.intellij.tomcatrunner.model.Module element : elements) {
-            ctxs.put(element.getContext().trim(), element.getDocumentBase().trim());
-        }
-
-        tomcatRunnerConfiguration.setPathsAndLocations(ctxs);
-
+        Modules elements = ((ModuleTableModel) (this.configurationPanel.getContexts().getModel())).getModules();
+        tomcatRunnerConfiguration.setTomcatModules(elements);
 
         // Deals with adding / removing env vars before saving to the conf file
         Map<String, String> envVars = this.configurationPanel.getEnvironmentVariables().getEnvs();
@@ -152,7 +142,6 @@ public class TomcatRunnerEditor extends SettingsEditor<TomcatRunnerConfiguration
         compilerManager.executeTask(compileTask, compileScope, TomcatRunnerConfigurationType.RUNNER_ID, null);
         return this.mainOutputDirectory;
     }
-
 
     /**
      * Adds / removes variables to the System Environment Variables

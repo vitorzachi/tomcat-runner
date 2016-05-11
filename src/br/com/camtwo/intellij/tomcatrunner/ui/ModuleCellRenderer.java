@@ -14,7 +14,17 @@ public class ModuleCellRenderer extends DefaultTableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value,
                                                    boolean isSelected, boolean hasFocus,
                                                    int row, int column) {
-        JLabel c = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        JLabel c = null;
+//        String path = String.valueOf(value);
+//        if (path.startsWith(Module.INTERNAL)) {
+//            String[] split = path.split("/");
+//
+//            c = (JLabel) super.getTableCellRendererComponent(table, "Internal module " + split[split.length - 1],
+//                    isSelected, hasFocus, row, column);
+//        } else {
+        c = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+//        }
+
         c.setToolTipText(c.getText());
         return c;
     }

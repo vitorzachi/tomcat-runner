@@ -1,11 +1,10 @@
 package br.com.camtwo.intellij.tomcatrunner.ui;
 
 import br.com.camtwo.intellij.tomcatrunner.model.Module;
+import br.com.camtwo.intellij.tomcatrunner.model.Modules;
 import com.google.common.base.Optional;
 
 import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Table model for Tomcat modules table.
@@ -14,21 +13,25 @@ import java.util.List;
  * @since 23/03/16.
  */
 public class ModuleTableModel extends DefaultTableModel {
-private String[] columns = {"Context", "Document base"};
-    private List<Module> modules;
+    private String[] columns = {"Context", "Document base"};
+    private Modules modules;
 
     public ModuleTableModel() {
-        modules = new ArrayList<>();
+        modules = new Modules();
+    }
+
+    public ModuleTableModel(Modules modules) {
+        this.modules = modules;
     }
 
     public void addModule(Module module) {
-        this.modules = Optional.fromNullable(this.modules).or(new ArrayList<Module>());
+        this.modules = Optional.fromNullable(this.modules).or(new Modules());
         modules.add(module);
         fireTableDataChanged();
     }
 
     public void removeModule(int index) {
-        this.modules = Optional.fromNullable(this.modules).or(new ArrayList<Module>());
+        this.modules = Optional.fromNullable(this.modules).or(new Modules());
         modules.remove(index);
         fireTableDataChanged();
     }
@@ -40,7 +43,7 @@ private String[] columns = {"Context", "Document base"};
 
     @Override
     public int getRowCount() {
-        return Optional.fromNullable(this.modules).or(new ArrayList<Module>()).size();
+        return Optional.fromNullable(this.modules).or(new Modules()).size();
     }
 
     @Override
@@ -62,7 +65,7 @@ private String[] columns = {"Context", "Document base"};
         return false;
     }
 
-    public List<Module> getModules() {
+    public Modules getModules() {
         return modules;
     }
 }

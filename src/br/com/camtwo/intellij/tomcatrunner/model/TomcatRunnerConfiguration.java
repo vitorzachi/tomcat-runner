@@ -1,6 +1,7 @@
 package br.com.camtwo.intellij.tomcatrunner.model;
 
 import br.com.camtwo.intellij.tomcatrunner.ui.TomcatRunnerEditor;
+import com.google.gson.Gson;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
@@ -14,7 +15,6 @@ import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.InvalidDataException;
-import com.intellij.openapi.util.JDOMExternalizer;
 import com.intellij.openapi.util.JDOMExternalizerUtil;
 import com.intellij.openapi.util.WriteExternalException;
 import org.jdom.Element;
@@ -28,29 +28,25 @@ import java.util.Map;
  * Tomcat Runner Configuration - UI Model
  *
  * @author Vitor Zachi Junior
- * Inspired on jetty-runner by GuiKeller.
+ *         Inspired on jetty-runner by GuiKeller.
  * @see LocatableConfigurationBase
  */
 public class TomcatRunnerConfiguration extends LocatableConfigurationBase implements RunProfileWithCompileBeforeLaunchOption {
-
     public static final String PREFIX = "TomcatRunnerV001-";
     public static final String TOMCAT_PATH_FIELD = PREFIX + "TomcatInstallation";
-    public static final String PATHS_AND_LOCATIONS_FIELD = PREFIX + "PathsAndLocations";
-    public static final String RUN_PORT_FIELD = PREFIX + "RunOnPort";
+    public static final String MODULES_FIELD = PREFIX + "Modules";
     public static final String VM_ARGS_FIELD = PREFIX + "VmArgs";
     public static final String PASS_PARENT_ENV_VARS_FIELD = PREFIX + "PassParentEnvVars";
-    public static final String PATH_APP = "path";
-
+    private static final Gson GSON = new Gson();
     private String tomcatInstallation;
     private String runningOnPort;
     private String vmArgs;
 
-    private Map<String, String> pathsAndLocations = new HashMap<String, String>(0);
+    private Modules tomcatModules = new Modules();
     private Map<String, String> environmentVariables = new HashMap<String, String>(0);
     private boolean passParentEnvironmentVariables = false;
 
     private Project project;
-
 
     public TomcatRunnerConfiguration(Project project, ConfigurationFactory factory, String name) {
         super(project, factory, name);
@@ -77,9 +73,12 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
     public void readExternal(Element element) throws InvalidDataException {
         super.readExternal(element);
         // Reads the conf file into this class
+
+        String locations = JDOMExternalizerUtil.readField(element, MODULES_FIELD);
+        if (locations != null) {
+            tomcatModules = (Modules) GSON.fromJson(locations, Modules.class);
+        }
         this.tomcatInstallation = JDOMExternalizerUtil.readField(element, TOMCAT_PATH_FIELD);
-        JDOMExternalizer.readMap(element, pathsAndLocations, PATHS_AND_LOCATIONS_FIELD, PATH_APP);
-        this.runningOnPort = JDOMExternalizerUtil.readField(element, RUN_PORT_FIELD);
         this.vmArgs = JDOMExternalizerUtil.readField(element, VM_ARGS_FIELD);
         String passParentEnvironmentVariablesValue = JDOMExternalizerUtil.readField(element, PASS_PARENT_ENV_VARS_FIELD);
         this.passParentEnvironmentVariables = Boolean.valueOf(passParentEnvironmentVariablesValue);
@@ -90,9 +89,11 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
     public void writeExternal(Element element) throws WriteExternalException {
         super.writeExternal(element);
         // Stores the values of this class into the parent
+
+        String modulesString = GSON.toJson(tomcatModules);
+        JDOMExternalizerUtil.writeField(element, MODULES_FIELD, modulesString);
+
         JDOMExternalizerUtil.writeField(element, TOMCAT_PATH_FIELD, this.getTomcatInstallation());
-        JDOMExternalizer.writeMap(element, pathsAndLocations, PATHS_AND_LOCATIONS_FIELD, PATH_APP);
-        JDOMExternalizerUtil.writeField(element, RUN_PORT_FIELD, this.getRunningOnPort());
         JDOMExternalizerUtil.writeField(element, VM_ARGS_FIELD, this.getVmArgs());
         JDOMExternalizerUtil.writeField(element, PASS_PARENT_ENV_VARS_FIELD, "" + this.isPassParentEnvironmentVariables());
         if (this.environmentVariables != null && !this.environmentVariables.isEmpty()) {
@@ -109,7 +110,6 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
 
     // Getters and Setters
 
-
     public String getTomcatInstallation() {
         return tomcatInstallation;
     }
@@ -117,15 +117,6 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
     public void setTomcatInstallation(String tomcatInstallation) {
         this.tomcatInstallation = tomcatInstallation;
     }
-
-    public String getRunningOnPort() {
-        return runningOnPort;
-    }
-
-    public void setRunningOnPort(String runningOnPort) {
-        this.runningOnPort = runningOnPort;
-    }
-
 
     public String getVmArgs() {
         return vmArgs;
@@ -151,11 +142,11 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
         this.passParentEnvironmentVariables = passParentEnvironmentVariables;
     }
 
-    public Map<String, String> getPathsAndLocations() {
-        return pathsAndLocations;
+    public Modules getTomcatModules() {
+        return tomcatModules;
     }
 
-    public void setPathsAndLocations(Map<String, String> pathsAndLocations) {
-        this.pathsAndLocations = pathsAndLocations;
+    public void setTomcatModules(Modules tomcatModules) {
+        this.tomcatModules = tomcatModules;
     }
 }
