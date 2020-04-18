@@ -1,6 +1,5 @@
 package br.com.camtwo.intellij.tomcatrunner.conf;
 
-import br.com.camtwo.intellij.tomcatrunner.util.IconUtil;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
 import org.jetbrains.annotations.NotNull;
@@ -36,7 +35,7 @@ public class TomcatRunnerConfigurationType implements ConfigurationType {
 
     @Override
     public Icon getIcon() {
-        return IconUtil.getInstance().getIcon();
+        return new ImageIcon(getClass().getResource("/tomcat.png"));
     }
 
     @Override

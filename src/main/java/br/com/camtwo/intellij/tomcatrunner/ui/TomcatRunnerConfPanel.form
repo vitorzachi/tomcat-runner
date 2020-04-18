@@ -133,7 +133,7 @@
               <forms/>
             </constraints>
             <properties>
-              <icon value="actions/module.png"/>
+              <icon value="nodes/Module.png"/>
               <text value=""/>
               <toolTipText value="Select target folder"/>
             </properties>
