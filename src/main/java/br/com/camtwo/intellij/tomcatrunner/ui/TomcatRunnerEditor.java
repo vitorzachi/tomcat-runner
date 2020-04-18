@@ -71,6 +71,7 @@ public class TomcatRunnerEditor extends SettingsEditor<TomcatRunnerConfiguration
         }
         // Vm Args (Optional)
         this.configurationPanel.getVmArgsField().setText(tomcatRunnerConfiguration.getVmArgs());
+        this.configurationPanel.getCleanTmpWork().setSelected(tomcatRunnerConfiguration.isCleanTmpWork());
     }
 
     /**
@@ -84,6 +85,7 @@ public class TomcatRunnerEditor extends SettingsEditor<TomcatRunnerConfiguration
         tomcatRunnerConfiguration.setTomcatInstallation(this.configurationPanel.getTomcatField().getText());
         tomcatRunnerConfiguration.setVmArgs(this.configurationPanel.getVmArgsField().getText());
         tomcatRunnerConfiguration.setPassParentEnvironmentVariables(this.configurationPanel.getEnvironmentVariables().isPassParentEnvs());
+        tomcatRunnerConfiguration.setCleanTmpWork(this.configurationPanel.getCleanTmpWork().isSelected());
 
         // parse map of modules
         Modules elements = ((ModuleTableModel) (this.configurationPanel.getContexts().getModel())).getModules();

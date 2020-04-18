@@ -38,6 +38,7 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
     public static final String VM_ARGS_FIELD = PREFIX + "VmArgs";
     public static final String PASS_PARENT_ENV_VARS_FIELD = PREFIX + "PassParentEnvVars";
     private static final Gson GSON = new Gson();
+    private static final String CLEAN_TMP_WORK_FIELD = PREFIX + "CleanTmpWork";
     private String tomcatInstallation;
     private String runningOnPort;
     private String vmArgs;
@@ -47,6 +48,7 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
     private boolean passParentEnvironmentVariables = false;
 
     private Project project;
+    private boolean cleanTmpWork;
 
     public TomcatRunnerConfiguration(Project project, ConfigurationFactory factory, String name) {
         super(project, factory, name);
@@ -83,6 +85,10 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
         String passParentEnvironmentVariablesValue = JDOMExternalizerUtil.readField(element, PASS_PARENT_ENV_VARS_FIELD);
         this.passParentEnvironmentVariables = Boolean.valueOf(passParentEnvironmentVariablesValue);
         EnvironmentVariablesComponent.readExternal(element, this.environmentVariables);
+        String cleanTmpWork = JDOMExternalizerUtil.readField(element, CLEAN_TMP_WORK_FIELD);
+        if (cleanTmpWork != null) {
+            this.passParentEnvironmentVariables = Boolean.parseBoolean(cleanTmpWork);
+        }
     }
 
     @Override
@@ -96,6 +102,7 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
         JDOMExternalizerUtil.writeField(element, TOMCAT_PATH_FIELD, this.getTomcatInstallation());
         JDOMExternalizerUtil.writeField(element, VM_ARGS_FIELD, this.getVmArgs());
         JDOMExternalizerUtil.writeField(element, PASS_PARENT_ENV_VARS_FIELD, "" + this.isPassParentEnvironmentVariables());
+        JDOMExternalizerUtil.writeField(element, CLEAN_TMP_WORK_FIELD, "" + this.isCleanTmpWork());
         if (this.environmentVariables != null && !this.environmentVariables.isEmpty()) {
             EnvironmentVariablesComponent.writeExternal(element, this.getEnvironmentVariables());
         }
@@ -148,5 +155,13 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
 
     public void setTomcatModules(Modules tomcatModules) {
         this.tomcatModules = tomcatModules;
+    }
+
+    public void setCleanTmpWork(boolean cleanTmpWork) {
+        this.cleanTmpWork = cleanTmpWork;
+    }
+
+    public boolean isCleanTmpWork() {
+        return cleanTmpWork;
     }
 }

@@ -23,6 +23,8 @@
         <rowspec value="center:max(d;4px):noGrow"/>
         <rowspec value="top:4dlu:noGrow"/>
         <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
         <colspec value="fill:d:noGrow"/>
         <colspec value="left:4dlu:noGrow"/>
         <colspec value="fill:d:grow"/>
@@ -87,16 +89,6 @@
               <toolTipText value=""/>
             </properties>
           </component>
-          <component id="c3534" class="com.intellij.execution.configuration.EnvironmentVariablesComponent" binding="environmentVariables">
-            <constraints>
-              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <forms/>
-            </constraints>
-            <properties>
-              <text value=""/>
-              <toolTipText value="Warning: Experimental feature, use with extreme caution."/>
-            </properties>
-          </component>
           <component id="a4aff" class="javax.swing.JLabel" binding="vmArgsLabel">
             <constraints>
               <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
@@ -133,7 +125,7 @@
               <forms/>
             </constraints>
             <properties>
-              <icon value="actions/module.png"/>
+              <icon value="nodes/Module.png"/>
               <text value=""/>
               <toolTipText value="Select target folder"/>
             </properties>
@@ -162,6 +154,24 @@
               </component>
             </children>
           </scrollpane>
+          <component id="8d9e0" class="javax.swing.JCheckBox" binding="cleanTmpWork">
+            <constraints>
+              <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="Clean temp/work folder before startup?"/>
+            </properties>
+          </component>
+          <component id="f9430" class="com.intellij.execution.configuration.EnvironmentVariablesComponent" binding="environmentVariables">
+            <constraints>
+              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>

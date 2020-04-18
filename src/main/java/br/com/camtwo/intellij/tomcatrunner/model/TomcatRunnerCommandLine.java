@@ -7,10 +7,10 @@ import com.intellij.execution.configurations.JavaParameters;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
+import org.apache.commons.io.FileUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -62,6 +62,15 @@ public class TomcatRunnerCommandLine extends JavaCommandLineState {
 
         TOMCAT_CONFIGURER.configure(tomcatInstallationPath, javaParams);
 
+        if (model.isCleanTmpWork()) {
+            try {
+                FileUtils.cleanDirectory(tomcatInstallationPath.resolve("temp").toFile());
+                FileUtils.cleanDirectory(tomcatInstallationPath.resolve("work").toFile());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
         // VM Args
         String vmArgs = this.getVmArgs();
@@ -85,6 +94,12 @@ public class TomcatRunnerCommandLine extends JavaCommandLineState {
 
         // All done, run it
         return javaParams;
+    }
+
+    private static void removeDirectoryContent(Path path,String subDir) throws IOException {
+        final Path temp = path.resolve(subDir);
+        FileUtil.deleteFolderRecursive(temp.toFile());
+        Files.createDirectory(temp);
     }
 
     /**

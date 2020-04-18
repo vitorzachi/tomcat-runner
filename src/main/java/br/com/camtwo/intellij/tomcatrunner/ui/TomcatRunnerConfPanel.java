@@ -42,6 +42,7 @@ public class TomcatRunnerConfPanel implements AddModuleInterface {
     private JButton addContextButton;
     private JTable contexts;
     private JScrollPane tableScrollPane;
+    private JCheckBox cleanTmpWork;
 
     public TomcatRunnerConfPanel(TomcatRunnerEditor editor) {
         this.editor = editor;
@@ -90,6 +91,10 @@ public class TomcatRunnerConfPanel implements AddModuleInterface {
 
     public JTextField getVmArgsField() {
         return vmArgsField;
+    }
+
+    public JCheckBox getCleanTmpWork() {
+        return cleanTmpWork;
     }
 
     public JButton getBrowseTomcatButton() {
