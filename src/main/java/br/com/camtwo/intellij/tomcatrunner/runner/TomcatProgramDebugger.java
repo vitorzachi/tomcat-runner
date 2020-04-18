@@ -76,9 +76,4 @@ public class TomcatProgramDebugger extends GenericDebuggerRunner {
         }
     }
 
-    @Override
-    protected RunContentDescriptor doExecute(@NotNull Project project, @NotNull RunProfileState state, RunContentDescriptor contentToReuse, @NotNull ExecutionEnvironment env) throws ExecutionException {
-        return super.doExecute(project, state, contentToReuse, env);
-    }
-
 }
