@@ -1,8 +1,8 @@
-<idea-plugin version="2">
+<idea-plugin>
     <id>camtwoTomcatRunner</id>
-    <name>Tomcat runner plugin for IntelliJ</name>
-    <version>1.2</version>
-    <vendor email="vitor.zachi@camtwo.com.br" url="http://www.camtwo.com.br">Camtwo Sistemas</vendor>
+    <name>Tomcat runner</name>
+    <version>1.5</version>
+    <vendor email="vitorzachi@gmail.com" url="https://vitorzachi.wordpress.com/">Vitor Zachi Junior</vendor>
 
     <description><![CDATA[
       A simple tomcat runner for maven web projects. Allow deploy your maven web applications in a Tomcat integrated in
@@ -18,17 +18,16 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      V. 1.3 features:<br>
+      V. 1.5 features:<br>
       <ul>
-        <li><em>Run via server.xml file</em></li>
-        <li><em>JRebel compatibility</em></li>
+        <li><em>IntelliJ 2020 compatibility</em></li>
+        <li><em>Better logo</em></li>
       </ul>
-
     ]]>
     </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-    <idea-version since-build="131"/>
+    <idea-version since-build="201"/>
 
 
     <depends>com.intellij.modules.lang</depends>
