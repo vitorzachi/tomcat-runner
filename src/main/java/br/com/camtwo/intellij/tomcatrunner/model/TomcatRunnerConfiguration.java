@@ -87,7 +87,7 @@ public class TomcatRunnerConfiguration extends LocatableConfigurationBase implem
         EnvironmentVariablesComponent.readExternal(element, this.environmentVariables);
         String cleanTmpWork = JDOMExternalizerUtil.readField(element, CLEAN_TMP_WORK_FIELD);
         if (cleanTmpWork != null) {
-            this.passParentEnvironmentVariables = Boolean.parseBoolean(cleanTmpWork);
+            this.cleanTmpWork = Boolean.parseBoolean(cleanTmpWork);
         }
     }
 
