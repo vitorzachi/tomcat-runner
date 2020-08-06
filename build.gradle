@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'br.com.camtwo.intellij.tomcatrunner'
-version '1.4.1'
+version '1.5.2'
 
 repositories {
     mavenCentral()
@@ -25,5 +25,7 @@ runIde{
     jbrVersion = 'jbrsdk11'
 }
 patchPluginXml{
-    changeNotes = "Added option to clean temp and work directory on startup"
+    changeNotes = "2020.2 compatibility"
+    sinceBuild = '201'
+    untilBuild = ''
 }
