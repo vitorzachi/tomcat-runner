@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="247c9d19-9fdf-4a7e-b1bb-17616ad363f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat-runner.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/Modules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/Modules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerCommandLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerCommandLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerViaCopySources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerViaCopySources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerViaServerConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerViaServerConf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/runner/TomcatProgramDebugger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/runner/TomcatProgramDebugger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/runner/TomcatProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/runner/TomcatProgramRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/AddModuleInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/AddModuleInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/ModuleCellRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/ModuleCellRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/ModuleTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/ModuleTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/NewModule.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/NewModule.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/NewModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/NewModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/util/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tomcat.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/tomcat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tomcat-runner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tomcat-runner.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1sfqXvYg5E2sDAyfaASDvXeiWti" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="tomcat-runner" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="tomcat-runner" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="247c9d19-9fdf-4a7e-b1bb-17616ad363f3" name="Default Changelist" comment="" />
+      <created>1621274036409</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621274036409</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
