@@ -74,8 +74,6 @@ public class TomcatRunnerConfPanel implements AddModuleInterface {
                         ((ModuleTableModel) (contexts.getModel())).removeModule(contexts.getSelectedRow());
                     }
                 }
-
-//                evt.getClickCount() == 2 && contexts.getRowCount() > 0
             }
         });
 
@@ -118,8 +116,8 @@ public class TomcatRunnerConfPanel implements AddModuleInterface {
         tableScrollPane.setViewportView(contexts);
         tableScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         tableScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        tableScrollPane.setPreferredSize(new Dimension(400, 100));
-        tableScrollPane.setSize(new Dimension(400, 100));
+        tableScrollPane.setPreferredSize(new Dimension(400, 150));
+        tableScrollPane.setSize(new Dimension(400, 150));
     }
 
     @Override

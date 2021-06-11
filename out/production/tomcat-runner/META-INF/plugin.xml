@@ -46,6 +46,9 @@
     <programRunner id="Debug"
                    implementation="br.com.camtwo.intellij.tomcatrunner.runner.TomcatProgramDebugger"
                    order="last"/>
+
+    <notificationGroup id="IDEA Tomcat Runner" displayType="BALLOON" key="tomcat.runner.editor"/>
+
   </extensions>
 
   <actions>

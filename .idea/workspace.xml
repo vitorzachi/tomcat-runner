@@ -2,45 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="247c9d19-9fdf-4a7e-b1bb-17616ad363f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat-runner.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/Modules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/Modules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatConfigurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerCommandLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerCommandLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerViaCopySources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerViaCopySources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerViaServerConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerViaServerConf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/runner/TomcatProgramDebugger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/runner/TomcatProgramDebugger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/runner/TomcatProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/runner/TomcatProgramRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/AddModuleInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/AddModuleInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/ModuleCellRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/ModuleCellRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/ModuleTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/ModuleTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/NewModule.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/NewModule.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/NewModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/NewModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/camtwo/intellij/tomcatrunner/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/util/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tomcat.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/tomcat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tomcat-runner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tomcat-runner.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tomcat-runner/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tomcat-runner/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/conf/TomcatRunnerConfigurationFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerCommandLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/model/TomcatRunnerCommandLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerEditor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerEditor$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tomcat-runner/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/camtwo/intellij/tomcatrunner/ui/TomcatRunnerConfPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +52,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">

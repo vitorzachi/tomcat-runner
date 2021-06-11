@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>camtwoTomcatRunner</id>
   <name>Tomcat runner</name>
-  <version>1.6</version>
+  <version>1.7</version>
   <vendor email="vitorzachi@gmail.com" url="https://vitorzachi.wordpress.com/">Vitor Zachi Junior</vendor>
 
   <description><![CDATA[
@@ -18,9 +18,10 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      V. 1.6 features:<br>
+      V. 1.7 features:<br>
       <ul>
         <li><em>IntelliJ 2021 compatibility</em></li>
+        <li><em>Readme and license files</em></li>
       </ul>
     ]]>
   </change-notes>
