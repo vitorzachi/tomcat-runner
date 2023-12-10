@@ -131,8 +131,7 @@
               <forms/>
             </constraints>
             <properties>
-              <icon value="nodes/Module.png"/>
-              <text value=""/>
+              <text value="browse"/>
               <toolTipText value="Select target folder"/>
             </properties>
           </component>
