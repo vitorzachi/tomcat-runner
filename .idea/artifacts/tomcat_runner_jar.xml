@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="tomcat-runner:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/tomcat_runner_jar</output-path>
+    <root id="archive" name="tomcat-runner.jar">
+      <element id="module-output" name="tomcat-runner" />
+    </root>
+  </artifact>
+</component>
